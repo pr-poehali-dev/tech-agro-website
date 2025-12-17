@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
 import Icon from '@/components/ui/icon';
+import InteractiveMap from '@/components/InteractiveMap';
 
 const Index = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -107,23 +108,7 @@ const Index = () => {
 
           <div className="bg-white rounded-3xl p-12 shadow-lg">
             <h3 className="text-3xl font-bold mb-8 text-center">География присутствия</h3>
-            <div className="grid md:grid-cols-3 gap-8">
-              {[
-                { region: 'Центральный регион', cities: ['Москва', 'Тула', 'Рязань'], count: 5 },
-                { region: 'Южный регион', cities: ['Краснодар', 'Ростов', 'Ставрополь'], count: 6 },
-                { region: 'Приволжский регион', cities: ['Казань', 'Саратов', 'Самара'], count: 4 }
-              ].map((region, idx) => (
-                <div key={idx} className="text-center p-6 rounded-xl bg-muted/50 hover:bg-muted transition-colors">
-                  <Badge className="mb-4 bg-primary text-white">{region.count} филиалов</Badge>
-                  <h4 className="font-semibold text-xl mb-3">{region.region}</h4>
-                  <div className="space-y-1">
-                    {region.cities.map((city, i) => (
-                      <p key={i} className="text-muted-foreground">{city}</p>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
+            <InteractiveMap />
           </div>
         </div>
       </section>
